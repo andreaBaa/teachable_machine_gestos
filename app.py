@@ -4,11 +4,19 @@ import numpy as np
 #from PIL import Image
 from PIL import Image as Image, ImageOps as ImagOps
 from keras.models import load_model
+from PIL import Image
+
 
 model = load_model('keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
 
 st.title("Reconocimiento de Imágenes")
+st.header("Tómate una foto haciendo alguno de estos dos gestos, para verificar si el sistema los reconoce:")
+image = Image.open('corazon.jpeg')
+st.image(image, width=200)
+image2 = Image.open('rock.jpg')
+st.image(image2, width=200)
+
 
 img_file_buffer = st.camera_input("Toma una Foto")
 
